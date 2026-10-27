@@ -1,20 +1,22 @@
-# AI Pose Gallery · 中文版
+# DAIMXAI 人体姿势参考库
 
 > 288 组 / 1439 张 AI 人体姿势参考图，日文数据完整汉化，附可直接部署的响应式静态画廊。
 
-![画廊预览](docs/preview.jpg)
+> 本版本使用 DAIMXAI 品牌、青绿色主题与独立分享封面，保留完整图库、筛选及下载功能；移除上游统计脚本。图片与原始数据归原作者所有，原 LICENSE 保留。
 
-<details><summary>手机端预览</summary>
+![DAIMXAI 分享封面](og-cover.png)
 
-![手机端预览](docs/mobile.jpg)
+![DAIMXAI 本地页面预览](docs/daimxai-preview.jpg)
 
-</details>
-
-**在线演示：** <https://ai-pose-gallery.anhao.app/>
+**当前状态：** 仅保存源码到 GitHub，尚未部署网站，未绑定域名。
+**预留域名：** `pose.daimxai.com`（代码中的站点地址配置，不表示已上线）
+**品牌与页面维护：** DAIMXAI
+**上游演示：** <https://ai-pose-gallery.anhao.app/>
 **原始站点：** <https://ai-pose-gallery.pages.dev/>
 **原作者：** ギア（@giaaibusi）
-**中文版维护：** Anhao · [X @anhao_ai](https://x.com/anhao_ai)
-**GitHub：** <https://github.com/anhao/ai-pose-gallery-zh>
+**上游中文版维护：** Anhao · [X @anhao_ai](https://x.com/anhao_ai)
+**本仓库：** <https://github.com/djsxxx/ai-pose-gallery-zh>
+**上游项目：** <https://github.com/anhao/ai-pose-gallery-zh>
 
 ---
 
@@ -42,15 +44,15 @@
 
 页面内置了完整的 SEO 与社交分享配置：
 
-- 关键词化标题：`AI 姿势参考库｜288 组人体姿势 · 1439 张多角度参考图`
+- 关键词化标题：`DAIMXAI 人体姿势参考库｜288 组人体姿势 · 1439 张多角度参考图`
 - 独立 description、keywords、author 与 `max-image-preview:large`
 - `canonical` 指向正式域名，避免自定义域名与 pages.dev 域名重复收录
-- Open Graph / Twitter Card 使用 1200×630 的 `og-cover.jpg`
+- Open Graph / Twitter Card 使用 1200×630 的 `og-cover.png`
 - JSON-LD 结构化数据：`WebSite` + `ImageGallery`，声明语言、简介与页面主图
 - `robots.txt` 放行全站并声明 sitemap，`sitemap.xml` 指向首页
 - 语义结构：单一 H1、分区 H2、卡片 H3；缩略图 `alt` 含姿势名与视角，图片懒加载
 
-仓库中的绝对地址统一指向 `https://ai-pose-gallery.anhao.app/`。Fork 后如使用其他域名，需同步替换 `index.html` 的 canonical、`og:*`、`twitter:*`、JSON-LD，以及 `robots.txt`、`sitemap.xml` 中的地址。
+本版本的站点地址预配置为 `https://pose.daimxai.com/`，当前未部署。以后如使用其他域名，需同步替换 `index.html` 的 canonical、`og:*`、`twitter:*`、JSON-LD，以及 `robots.txt`、`sitemap.xml` 中的地址。
 
 ## 数据规模
 
@@ -68,10 +70,10 @@
 
 ```
 .
-├── index.html              # 单页画廊（零依赖，直接打开即可）
+├── index.html              # 单页画廊（零依赖，需本地 HTTP 服务）
 ├── robots.txt              # 搜索引擎抓取规则
 ├── sitemap.xml             # 站点地图
-├── og-cover.jpg            # 1200×630 社交分享封面
+├── og-cover.png            # 1200×630 社交分享封面
 ├── data/
 │   ├── pose.json           # 原始日文数据（1439 条，未改动）
 │   ├── pose-zh.json        # 中文数据（前端实际读取，含检索字段）
@@ -135,7 +137,11 @@ python3 scripts/apply_translation.py
 python3 scripts/verify.py
 ```
 
-## 部署到 Cloudflare Pages
+## 部署参考（当前未执行）
+
+以下仅保留操作文档，不会自动创建站点或部署。
+
+### 部署到 Cloudflare Pages
 
 仓库为纯静态站点，无框架、无依赖。
 
